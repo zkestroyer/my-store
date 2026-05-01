@@ -1,27 +1,33 @@
 import React from 'react';
 
-export default function ProductListing() {
-  // Mock data for the products shown in the list
+export default function ProductGrid() {
+  // Mock data for the products shown in the 3x3 grid
   const products = [
-    { id: 1, title: 'Canon camera EOS 2000, Black 10x zoom', price: '998.00', oldPrice: '1128.00', rating: 4, orders: 154, imgAsset: 'Product 1 (Red Phone)' },
-    { id: 2, title: 'GoPro HERO6 4K Action Camera - Black', price: '998.00', oldPrice: null, rating: 4, orders: 154, imgAsset: 'Product 2 (Smartphone)' },
-    { id: 3, title: 'GoPro HERO6 4K Action Camera - Black', price: '998.00', oldPrice: null, rating: 4, orders: 154, imgAsset: 'Product 3 (Tablet/Foldable)' },
-    { id: 4, title: 'GoPro HERO6 4K Action Camera - Black', price: '998.00', oldPrice: null, rating: 4, orders: 154, imgAsset: 'Product 4 (Laptop)' },
-    { id: 5, title: 'GoPro HERO6 4K Action Camera - Black', price: '998.00', oldPrice: '1128.00', rating: 4, orders: 154, imgAsset: 'Product 5 (Smartwatch)' },
-    { id: 6, title: 'GoPro HERO6 4K Action Camera - Black', price: '998.00', oldPrice: null, rating: 4, orders: 154, imgAsset: 'Product 6 (Headphones)' },
+    { id: 1, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: 'product-1.png' },
+    { id: 2, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 5.9, imgSrc: 'product-2.png' },
+    { id: 3, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: null, rating: 7.5, imgSrc: 'product-3.png' },
+    { id: 4, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: 'product-4.png' },
+    { id: 5, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: 'product-5.png' },
+    { id: 6, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: null, rating: 7.5, imgSrc: 'product-6.png' },
+    { id: 7, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: 'product-7.png' },
+    { id: 8, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: 'product-8.png' },
+    { id: 9, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: null, rating: 7.5, imgSrc: 'product-9.png' },
   ];
+
+  // The active filters shown below the search bar
+  const activeFilters = ['Samsung', 'Apple', 'Poco', 'Metallic', '4 star', '3 star'];
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans text-gray-800">
       
-      {/* HEADER (Reused from previous layout for consistency) */}
+      {/* HEADER */}
       <header className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2 text-blue-600 font-bold text-2xl">
-            {/* IMAGE ASSET LINK HERE: Brand Logo */}
-            <img src="/assets/Layout/Brand/logo-colored.png" alt="Brand Logo" className="h-8 w-auto rounded" />
+            <img src="/assets/logo.png" alt="Brand Logo" className="h-8 w-auto rounded" />
+            Brand
           </div>
-
+          
           <div className="flex w-1/2 border border-blue-500 rounded-md overflow-hidden">
             <input type="text" placeholder="Search" className="w-full px-3 py-2 outline-none" />
             <select className="bg-white border-l border-gray-300 px-3 py-2 text-gray-600 outline-none">
@@ -102,7 +108,7 @@ export default function ProductListing() {
               <div className="space-y-2 text-sm text-gray-600">
                 {['Samsung', 'Apple', 'Huawei', 'Pocco', 'Lenovo'].map(brand => (
                   <label key={brand} className="flex items-center gap-2 cursor-pointer">
-                    <input type="checkbox" className="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                    <input type="checkbox" defaultChecked={['Samsung', 'Apple', 'Pocco'].includes(brand)} className="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
                     {brand}
                   </label>
                 ))}
@@ -118,7 +124,7 @@ export default function ProductListing() {
               <div className="space-y-2 text-sm text-gray-600">
                 {['Metallic', 'Plastic cover', '8GB Ram', 'Super power', 'Large Memory'].map(feature => (
                   <label key={feature} className="flex items-center gap-2 cursor-pointer">
-                    <input type="checkbox" className="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                    <input type="checkbox" defaultChecked={feature === 'Metallic'} className="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
                     {feature}
                   </label>
                 ))}
@@ -126,66 +132,30 @@ export default function ProductListing() {
               </div>
             </div>
 
-            {/* Price range */}
+            {/* Collapsed Filters */}
             <div className="border-t border-gray-200 py-4">
-              <div className="flex justify-between items-center font-semibold mb-3 cursor-pointer">
-                Price range <span className="text-gray-400 text-xs">▲</span>
-              </div>
-              {/* Slider Visual Mock */}
-              <div className="px-2 mb-4">
-                <div className="h-1 bg-gray-200 rounded relative mt-4">
-                  <div className="absolute left-1/4 right-1/4 h-full bg-blue-500"></div>
-                  <div className="w-4 h-4 bg-white border border-gray-300 rounded-full absolute -top-1.5 left-1/4 -ml-2 shadow"></div>
-                  <div className="w-4 h-4 bg-white border border-gray-300 rounded-full absolute -top-1.5 right-1/4 -mr-2 shadow"></div>
-                </div>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <div className="flex-1">
-                  <label className="text-xs text-gray-500 block mb-1">Min</label>
-                  <input type="text" placeholder="0" className="w-full border border-gray-300 rounded px-2 py-1.5 outline-none" />
-                </div>
-                <div className="flex-1">
-                  <label className="text-xs text-gray-500 block mb-1">Max</label>
-                  <input type="text" placeholder="999999" className="w-full border border-gray-300 rounded px-2 py-1.5 outline-none" />
-                </div>
-              </div>
-              <button className="w-full mt-3 bg-white border border-gray-300 text-blue-600 font-medium py-1.5 rounded shadow-sm hover:bg-gray-50">Apply</button>
-            </div>
-
-            {/* Condition */}
-            <div className="border-t border-gray-200 py-4">
-              <div className="flex justify-between items-center font-semibold mb-3 cursor-pointer">
-                Condition <span className="text-gray-400 text-xs">▲</span>
-              </div>
-              <div className="space-y-2 text-sm text-gray-600">
-                {['Any', 'Refurbished', 'Brand new', 'Old items'].map((cond, i) => (
-                  <label key={cond} className="flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="condition" defaultChecked={i === 0} className="text-blue-600 focus:ring-blue-500" />
-                    {cond}
-                  </label>
-                ))}
+              <div className="flex justify-between items-center font-semibold cursor-pointer">
+                Price range <span className="text-gray-400 text-xs">▼</span>
               </div>
             </div>
-
-            {/* Ratings */}
             <div className="border-t border-gray-200 py-4">
-              <div className="flex justify-between items-center font-semibold mb-3 cursor-pointer">
-                Ratings <span className="text-gray-400 text-xs">▲</span>
+              <div className="flex justify-between items-center font-semibold cursor-pointer">
+                Condition <span className="text-gray-400 text-xs">▼</span>
               </div>
-              <div className="space-y-2 text-sm text-gray-600">
-                {[5, 4, 3, 2].map(stars => (
-                  <label key={stars} className="flex items-center gap-2 cursor-pointer">
-                    <input type="checkbox" className="rounded border-gray-300" />
-                    <div className="flex text-yellow-400 text-lg leading-none">
-                      {'★'.repeat(stars)}{'☆'.repeat(5 - stars)}
-                    </div>
-                  </label>
-                ))}
+            </div>
+            <div className="border-t border-gray-200 py-4">
+              <div className="flex justify-between items-center font-semibold cursor-pointer">
+                Ratings <span className="text-gray-400 text-xs">▼</span>
+              </div>
+            </div>
+            <div className="border-t border-gray-200 py-4">
+              <div className="flex justify-between items-center font-semibold cursor-pointer">
+                Manufacturer <span className="text-gray-400 text-xs">▼</span>
               </div>
             </div>
           </aside>
 
-          {/* RIGHT PRODUCT LIST */}
+          {/* RIGHT PRODUCT GRID */}
           <div className="flex-1">
             {/* Top sorting bar */}
             <div className="bg-white border border-gray-200 rounded-lg p-3 flex justify-between items-center mb-4">
@@ -200,59 +170,55 @@ export default function ProductListing() {
                   <option>Featured</option>
                 </select>
                 <div className="flex border border-gray-300 rounded overflow-hidden">
-                  <button className="px-2 py-1 bg-white hover:bg-gray-50 border-r border-gray-300">
-                    {/* Grid Icon Asset */}
+                  <button className="px-2 py-1 bg-gray-100 text-gray-800 border-r border-gray-300">
                     ⊞
                   </button>
-                  <button className="px-2 py-1 bg-gray-100 text-gray-600">
-                    {/* List Icon Asset */}
+                  <button className="px-2 py-1 bg-white hover:bg-gray-50 text-gray-400">
                     ☰
                   </button>
                 </div>
               </div>
             </div>
 
-            {/* Product Items */}
-            <div className="space-y-4">
+            {/* Active Filters Row */}
+            <div className="flex flex-wrap items-center gap-2 mb-4">
+              {activeFilters.map(filter => (
+                <span key={filter} className="flex items-center gap-1 bg-white border border-gray-300 text-gray-600 text-sm px-2 py-1 rounded">
+                  {filter} 
+                  <button className="text-gray-400 hover:text-gray-600 ml-1 leading-none">×</button>
+                </span>
+              ))}
+              <button className="text-blue-600 text-sm ml-2 hover:underline">Clear all filter</button>
+            </div>
+
+            {/* 3x3 Grid of Products */}
+            <div className="grid grid-cols-3 gap-4">
               {products.map((item) => (
-                <div key={item.id} className="bg-white border border-gray-200 rounded-lg p-4 flex gap-5 relative group">
+                <div key={item.id} className="bg-white border border-gray-200 rounded-lg p-4 flex flex-col relative group">
                   {/* Image Container */}
-                  <div className="w-48 h-48 flex-shrink-0 bg-gray-100 rounded flex items-center justify-center p-2">
-                    {/* IMAGE ASSET LINK HERE: {item.imgAsset} */}
-                    <span className="text-gray-400 text-xs">{item.imgAsset}</span>
+                  <div className="w-full h-48 bg-gray-100 rounded mb-4 flex items-center justify-center p-4">
+                    <img src={`/assets/${item.imgSrc}`} alt={item.title} className="max-h-full max-w-full object-contain mix-blend-multiply" />
                   </div>
 
-                  {/* Details */}
-                  <div className="flex-1 py-1">
-                    <h3 className="font-medium text-lg text-gray-900 mb-2">{item.title}</h3>
-                    
-                    <div className="flex items-center gap-3 mb-2 text-sm">
-                      <span className="font-bold text-xl">${item.price}</span>
-                      {item.oldPrice && <span className="text-gray-400 line-through">${item.oldPrice}</span>}
-                    </div>
-
-                    <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
-                      <div className="flex items-center gap-1">
-                        <span className="text-yellow-400 text-lg leading-none">★★★★☆</span>
-                        <span className="text-yellow-600">{item.rating}.0</span>
+                  {/* Price and Heart */}
+                  <div className="flex justify-between items-start mb-2">
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="font-bold text-lg">${item.price}</span>
+                        {item.oldPrice && <span className="text-sm text-gray-400 line-through">${item.oldPrice}</span>}
                       </div>
-                      <span className="text-gray-300">•</span>
-                      <span>{item.orders} orders</span>
-                      <span className="text-gray-300">•</span>
-                      <span className="text-green-500 font-medium">Free Shipping</span>
+                      <div className="flex items-center gap-1 mt-1 text-sm">
+                        <span className="text-yellow-400 leading-none">★★★★☆</span>
+                        <span className="text-yellow-600">{item.rating}</span>
+                      </div>
                     </div>
-
-                    <p className="text-sm text-gray-600 line-clamp-2 w-5/6 mb-4">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
-
-                    <a href="#" className="text-blue-600 font-medium text-sm hover:underline">View details</a>
+                    <button className="text-blue-500 border border-gray-200 w-8 h-8 rounded flex items-center justify-center hover:bg-blue-50 shadow-sm">
+                      ♡
+                    </button>
                   </div>
 
-                  {/* Heart Icon Button */}
-                  <button className="absolute top-4 right-4 w-10 h-10 border border-gray-200 rounded flex items-center justify-center text-blue-500 hover:bg-blue-50 transition-colors shadow-sm">
-                    ♡
-                  </button>
+                  {/* Title */}
+                  <p className="text-sm text-gray-600 line-clamp-2 mt-1">{item.title}</p>
                 </div>
               ))}
             </div>
@@ -277,25 +243,24 @@ export default function ProductListing() {
         </div>
       </main>
 
-      {/* NEWSLETTER (Reused) */}
+      {/* NEWSLETTER */}
       <div className="bg-gray-200 py-10 mt-10">
         <div className="max-w-xl mx-auto text-center">
           <h3 className="font-bold text-xl mb-2">Subscribe on our newsletter</h3>
           <p className="text-gray-500 text-sm mb-6">Get daily news on upcoming offers from many suppliers all over the world</p>
           <div className="flex gap-2 justify-center">
-             {/* IMAGE ASSET LINK HERE: Email Envelope Icon (optional inside input) */}
             <input type="email" placeholder="Email" className="border border-gray-300 rounded px-4 py-2 w-72 outline-none" />
             <button className="bg-blue-600 text-white px-6 py-2 rounded font-medium">Subscribe</button>
           </div>
         </div>
       </div>
 
-      {/* FOOTER (Reused) */}
+      {/* FOOTER */}
       <footer className="bg-white pt-12 pb-6 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-6 gap-8 mb-10">
           <div className="col-span-2">
             <div className="flex items-center gap-2 text-blue-600 font-bold text-xl mb-4">
-              <div className="w-8 h-8 bg-blue-500 rounded text-white flex items-center justify-center font-bold">B</div>
+              <img src="/assets/logo.png" alt="Brand Logo" className="h-8 w-auto rounded" />
               Brand
             </div>
             <p className="text-gray-500 text-sm mb-6 pr-10">Best information about the company gies here but too lorem ipsum is.</p>
