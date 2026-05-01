@@ -23,7 +23,7 @@ export default function ShoppingCart() {
       <header className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2 text-blue-600 font-bold text-2xl">
-            <img src="/assets/logo.png" alt="Brand Logo" className="h-8 w-auto rounded" />
+            <img src="/assets/Layout/Brand/logo-colored.png" alt="Brand Logo" className="h-8 w-auto rounded" />
             Brand
           </div>
 
