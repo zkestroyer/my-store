@@ -1,10 +1,13 @@
 import React from 'react'
-import EcommerceLayout from './components/EcommerceLayout'
+// Commenting out the old one:
+// import EcommerceLayout from './components/EcommerceLayout' 
+// Importing the new one:
+import ProductListing from './components/ProductListing'
 
 function App() {
   return (
     <div>
-      <EcommerceLayout />
+      <ProductListing />
     </div>
   )
 }
