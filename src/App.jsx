@@ -5,6 +5,7 @@ import EcommerceLayout from './components/EcommerceLayout';
 import ProductListing from './components/ProductListing';
 import ProductGrid from './components/ProductGrid';
 import ProductDetails from './components/ProductDetails';
+import ShoppingCart from './components/ShoppingCart';
 
 function App() {
   // We use a simple state to track which page is currently active
@@ -42,6 +43,12 @@ function App() {
         >
           4. Product Details
         </button>
+        <button 
+          onClick={() => setActivePage('cart')}
+          className={`px-4 py-2 rounded transition-colors ${activePage === 'cart' ? 'bg-blue-600' : 'bg-gray-800 hover:bg-gray-700'}`}
+        >
+          5. Shopping Cart
+        </button>
       </div>
 
       {/* 
@@ -52,6 +59,7 @@ function App() {
       {activePage === 'list' && <ProductListing />}
       {activePage === 'grid' && <ProductGrid />}
       {activePage === 'details' && <ProductDetails />}
+      {activePage === 'cart' && <ShoppingCart />}
 
     </div>
   );
