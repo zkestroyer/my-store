@@ -22,23 +22,22 @@ export default function ShoppingCart() {
       {/* HEADER (Simplified for Cart view) */}
       <header className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-blue-600 font-bold text-2xl">
-            <img src="/assets/Layout/Brand/logo-colored.png" alt="Brand Logo" className="h-8 w-auto rounded" />
-            Brand
+          <div className="flex items-center gap-2">
+            <img src="/assets/Layout/Brand/logo-colored.png" alt="Brand Logo" className="h-10 w-auto" />
           </div>
 
           <div className="flex gap-6 text-gray-500 text-xs text-center">
             <div className="flex flex-col items-center cursor-pointer">
-              <div className="w-6 h-6 bg-gray-200 rounded-full mb-1"></div> Profile
+              <img src="https://img.icons8.com/material-outlined/24/787878/user.png" alt="Profile" className="w-6 h-6 mb-1 opacity-70" /> Profile
             </div>
             <div className="flex flex-col items-center cursor-pointer">
-              <div className="w-6 h-6 bg-gray-200 rounded mb-1"></div> Message
+              <img src="https://img.icons8.com/material-outlined/24/787878/speech-bubble.png" alt="Icon" className="w-6 h-6 mb-1 opacity-70" /> Message
             </div>
             <div className="flex flex-col items-center cursor-pointer">
-              <div className="w-6 h-6 bg-gray-200 rounded mb-1"></div> Orders
+              <img src="https://img.icons8.com/material-outlined/24/787878/speech-bubble.png" alt="Icon" className="w-6 h-6 mb-1 opacity-70" /> Orders
             </div>
             <div className="flex flex-col items-center cursor-pointer text-blue-600">
-              <div className="w-6 h-6 bg-blue-100 rounded mb-1 flex items-center justify-center text-blue-600">🛒</div> My cart
+              <img src="https://img.icons8.com/material-outlined/24/787878/shopping-cart.png" alt="Cart" className="w-6 h-6 mb-1" /> My cart
             </div>
           </div>
         </div>
@@ -62,9 +61,8 @@ export default function ShoppingCart() {
                     <div className="flex gap-4">
                       {/* Product Image */}
                       <div className="w-20 h-20 bg-gray-100 rounded border border-gray-200 flex items-center justify-center p-2 flex-shrink-0">
-                        <img src={`/assets/${item.img}`} alt={item.title} className="max-h-full object-contain mix-blend-multiply" />
+                        <img src={'/assets/Layout/alibaba/Image/cloth/' + ["2 1.png","Bitmap (2).png","Bitmap.png","image 24.png","image 26.png","image 30.png"][(item.id - 1) % 6]} alt={item.title} className="max-h-full object-contain mix-blend-multiply" />
                       </div>
-                      
                       {/* Product Details */}
                       <div className="flex flex-col justify-between">
                         <div>
@@ -138,7 +136,7 @@ export default function ShoppingCart() {
                 {savedItems.map((item) => (
                   <div key={item.id} className="flex flex-col group">
                     <div className="bg-gray-100 rounded-lg h-48 flex items-center justify-center p-4 mb-4">
-                      <img src={`/assets/${item.img}`} alt={item.title} className="max-h-full object-contain mix-blend-multiply" />
+                      <img src={["/assets/Image/interior/3.png","/assets/Image/interior/6.png","/assets/Image/interior/7.png","/assets/Image/interior/8.png","/assets/Image/interior/9.png","/assets/Image/tech/6.png","/assets/Image/tech/8.png","/assets/Image/tech/image 23.png","/assets/Image/tech/image 29.png","/assets/Image/tech/image 32.png"][item.id % 10]} alt={item.title} className="max-h-full object-contain mix-blend-multiply" />
                     </div>
                     <span className="font-bold text-lg text-gray-900 mb-1">${item.price}</span>
                     <h4 className="text-sm text-gray-600 line-clamp-2 mb-3 h-10">{item.title}</h4>
@@ -203,12 +201,9 @@ export default function ShoppingCart() {
               </button>
 
               <div className="flex justify-center gap-2">
-                {/* Dummy Payment Icons */}
-                <div className="w-10 h-6 bg-gray-200 rounded border border-gray-300"></div>
-                <div className="w-10 h-6 bg-gray-200 rounded border border-gray-300"></div>
-                <div className="w-10 h-6 bg-gray-200 rounded border border-gray-300"></div>
-                <div className="w-10 h-6 bg-gray-200 rounded border border-gray-300"></div>
-                <div className="w-10 h-6 bg-gray-200 rounded border border-gray-300"></div>
+                <img src="/assets/Layout1/Image/flags/US@2x.png" alt="Visa" className="w-10 h-6 object-cover bg-white rounded border border-gray-200 px-1 shadow-sm" />
+                <img src="/assets/Layout1/Image/flags/DE@2x.png" alt="Mastercard" className="w-10 h-6 object-cover bg-white rounded border border-gray-200 px-1 shadow-sm" />
+                <img src="/assets/Layout1/Image/flags/GB@2x.png" alt="PayPal" className="w-10 h-6 object-cover bg-white rounded border border-gray-200 px-1 shadow-sm" />
               </div>
             </div>
 
@@ -220,9 +215,8 @@ export default function ShoppingCart() {
       <footer className="bg-white pt-12 pb-6 border-t border-gray-200 mt-10">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-6 gap-8 mb-10">
           <div className="col-span-2">
-            <div className="flex items-center gap-2 text-blue-600 font-bold text-xl mb-4">
-              <img src="/assets/logo.png" alt="Brand Logo" className="h-8 w-auto rounded" />
-              Brand
+            <div className="flex items-center gap-2 mb-4">
+              <img src="/assets/Layout/Brand/logo-colored.png" alt="Brand Logo" className="h-10 w-auto" />
             </div>
             <p className="text-gray-500 text-sm mb-6 pr-10">Best information about the company gies here but too lorem ipsum is.</p>
             <div className="flex gap-3">
@@ -245,10 +239,10 @@ export default function ShoppingCart() {
           <div>
             <h4 className="font-bold mb-4">Partnership</h4>
             <ul className="space-y-2 text-gray-500 text-sm">
-              <li>About Us</li>
-              <li>Find store</li>
-              <li>Categories</li>
-              <li>Blogs</li>
+              <li>Affiliates</li>
+              <li>Co-branding</li>
+              <li>Franchise</li>
+              <li>Retailers</li>
             </ul>
           </div>
           
@@ -275,8 +269,8 @@ export default function ShoppingCart() {
           <div>
             <h4 className="font-bold mb-4">Get app</h4>
             <div className="space-y-2 flex flex-col">
-              <div className="bg-gray-900 w-32 h-10 rounded text-white text-xs flex items-center justify-center">App Store</div>
-              <div className="bg-gray-900 w-32 h-10 rounded text-white text-xs flex items-center justify-center">Google Play</div>
+              <img src="/assets/Layout/Misc/market-button.png" alt="App Store" className="w-32 h-10 object-contain rounded" />
+              <img src="/assets/Layout/Misc/market-button.png" alt="Google Play" className="w-32 h-10 object-contain rounded" />
             </div>
           </div>
         </div>
@@ -285,7 +279,7 @@ export default function ShoppingCart() {
           <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-sm text-gray-600">
             <p>© 2023 Ecommerce.</p>
             <div className="flex items-center gap-1 cursor-pointer">
-              <div className="w-5 h-3 bg-red-500 mr-1"></div>
+              <img src="/assets/Layout1/Image/flags/US@2x.png" alt="US Flag" className="w-5 h-3 object-cover rounded-sm mr-1" />
               English
             </div>
           </div>

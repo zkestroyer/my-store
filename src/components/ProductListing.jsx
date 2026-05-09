@@ -4,11 +4,11 @@ export default function ProductListing() {
   // Mock data for the products shown in the list
   const products = [
     { id: 1, title: 'Canon camera EOS 2000, Black 10x zoom', price: '998.00', oldPrice: '1128.00', rating: 4, orders: 154, imgAsset: 'Product 1 (Red Phone)' },
-    { id: 2, title: 'GoPro HERO6 4K Action Camera - Black', price: '998.00', oldPrice: null, rating: 4, orders: 154, imgAsset: 'Product 2 (Smartphone)' },
-    { id: 3, title: 'GoPro HERO6 4K Action Camera - Black', price: '998.00', oldPrice: null, rating: 4, orders: 154, imgAsset: 'Product 3 (Tablet/Foldable)' },
-    { id: 4, title: 'GoPro HERO6 4K Action Camera - Black', price: '998.00', oldPrice: null, rating: 4, orders: 154, imgAsset: 'Product 4 (Laptop)' },
-    { id: 5, title: 'GoPro HERO6 4K Action Camera - Black', price: '998.00', oldPrice: '1128.00', rating: 4, orders: 154, imgAsset: 'Product 5 (Smartwatch)' },
-    { id: 6, title: 'GoPro HERO6 4K Action Camera - Black', price: '998.00', oldPrice: null, rating: 4, orders: 154, imgAsset: 'Product 6 (Headphones)' },
+    { id: 2, title: 'Apple iPhone 13 Pro Max - 256GB - Blue', price: '899.00', oldPrice: null, rating: 5, orders: 320, imgAsset: 'Product 2 (Smartphone)' },
+    { id: 3, title: 'Samsung Galaxy Z Fold 3 5G - Phantom Black', price: '1299.00', oldPrice: null, rating: 4, orders: 85, imgAsset: 'Product 3 (Tablet/Foldable)' },
+    { id: 4, title: 'Apple MacBook Pro 14" M1 Pro Chip', price: '1999.00', oldPrice: null, rating: 5, orders: 210, imgAsset: 'Product 4 (Laptop)' },
+    { id: 5, title: 'Apple Watch Series 7 GPS - Midnight Aluminum', price: '399.00', oldPrice: '429.00', rating: 4, orders: 405, imgAsset: 'Product 5 (Smartwatch)' },
+    { id: 6, title: 'Sony WH-1000XM4 Wireless Noise Canceling', price: '298.00', oldPrice: '348.00', rating: 5, orders: 1024, imgAsset: 'Product 6 (Headphones)' },
   ];
 
   return (
@@ -17,9 +17,8 @@ export default function ProductListing() {
       {/* HEADER (Reused from previous layout for consistency) */}
       <header className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-blue-600 font-bold text-2xl">
-            {/* IMAGE ASSET LINK HERE: Brand Logo */}
-            <img src="/assets/Layout/Brand/logo-colored.png" alt="Brand Logo" className="h-8 w-auto rounded" />
+          <div className="flex items-center gap-2">
+            <img src="/assets/Layout/Brand/logo-colored.png" alt="Brand Logo" className="h-10 w-auto" />
           </div>
 
           <div className="flex w-1/2 border border-blue-500 rounded-md overflow-hidden">
@@ -32,16 +31,16 @@ export default function ProductListing() {
 
           <div className="flex gap-6 text-gray-500 text-xs text-center">
             <div className="flex flex-col items-center cursor-pointer">
-              <div className="w-6 h-6 bg-gray-200 rounded-full mb-1"></div> Profile
+              <img src="https://img.icons8.com/material-outlined/24/787878/user.png" alt="Profile" className="w-6 h-6 mb-1 opacity-70" /> Profile
             </div>
             <div className="flex flex-col items-center cursor-pointer">
-              <div className="w-6 h-6 bg-gray-200 rounded mb-1"></div> Message
+              <img src="https://img.icons8.com/material-outlined/24/787878/speech-bubble.png" alt="Icon" className="w-6 h-6 mb-1 opacity-70" /> Message
             </div>
             <div className="flex flex-col items-center cursor-pointer">
-              <div className="w-6 h-6 bg-gray-200 rounded mb-1"></div> Orders
+              <img src="https://img.icons8.com/material-outlined/24/787878/speech-bubble.png" alt="Icon" className="w-6 h-6 mb-1 opacity-70" /> Orders
             </div>
             <div className="flex flex-col items-center cursor-pointer">
-              <div className="w-6 h-6 bg-gray-200 rounded mb-1"></div> My cart
+              <img src="https://img.icons8.com/material-outlined/24/787878/speech-bubble.png" alt="Icon" className="w-6 h-6 mb-1 opacity-70" /> My cart
             </div>
           </div>
         </div>
@@ -59,7 +58,7 @@ export default function ProductListing() {
             <div className="flex gap-4 font-medium">
               <span className="cursor-pointer">English, USD ▾</span>
               <span className="cursor-pointer flex items-center gap-1">
-                Ship to <div className="w-4 h-3 bg-red-500"></div> ▾
+                Ship to <img src="/assets/Layout1/Image/flags/DE@2x.png" alt="Germany Flag" className="w-4 h-3 object-cover rounded-sm" /> ▾
               </span>
             </div>
           </div>
@@ -217,9 +216,9 @@ export default function ProductListing() {
               {products.map((item) => (
                 <div key={item.id} className="bg-white border border-gray-200 rounded-lg p-4 flex gap-5 relative group">
                   {/* Image Container */}
-                  <div className="w-48 h-48 flex-shrink-0 bg-gray-100 rounded flex items-center justify-center p-2">
+                  <div className="w-48 h-48 flex-shrink-0 bg-gray-100 rounded overflow-hidden p-2">
                     {/* IMAGE ASSET LINK HERE: {item.imgAsset} */}
-                    <span className="text-gray-400 text-xs">{item.imgAsset}</span>
+                    <img src={["/assets/Image/interior/3.png","/assets/Image/interior/6.png","/assets/Image/interior/7.png","/assets/Image/interior/8.png","/assets/Image/interior/9.png","/assets/Image/tech/6.png","/assets/Image/tech/8.png","/assets/Image/tech/image 23.png","/assets/Image/tech/image 29.png","/assets/Image/tech/image 32.png"][(item.id - 1) % 10]} alt={item.imgAsset} className="w-full h-full object-cover rounded" />
                   </div>
 
                   {/* Details */}
@@ -282,9 +281,12 @@ export default function ProductListing() {
         <div className="max-w-xl mx-auto text-center">
           <h3 className="font-bold text-xl mb-2">Subscribe on our newsletter</h3>
           <p className="text-gray-500 text-sm mb-6">Get daily news on upcoming offers from many suppliers all over the world</p>
-          <div className="flex gap-2 justify-center">
-             {/* IMAGE ASSET LINK HERE: Email Envelope Icon (optional inside input) */}
-            <input type="email" placeholder="Email" className="border border-gray-300 rounded px-4 py-2 w-72 outline-none" />
+          <div className="flex gap-2 justify-center items-center">
+            <div className="relative w-72">
+              {/* IMAGE ASSET LINK HERE: Email Envelope Icon (optional inside input) */}
+              <img src="https://img.icons8.com/material-outlined/24/787878/new-post.png" alt="Email icon" className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" />
+              <input type="email" placeholder="Email" className="border border-gray-300 rounded px-10 py-2 w-full outline-none" />
+            </div>
             <button className="bg-blue-600 text-white px-6 py-2 rounded font-medium">Subscribe</button>
           </div>
         </div>
@@ -294,9 +296,8 @@ export default function ProductListing() {
       <footer className="bg-white pt-12 pb-6 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-6 gap-8 mb-10">
           <div className="col-span-2">
-            <div className="flex items-center gap-2 text-blue-600 font-bold text-xl mb-4">
-              <div className="w-8 h-8 bg-blue-500 rounded text-white flex items-center justify-center font-bold">B</div>
-              Brand
+            <div className="flex items-center gap-2 mb-4">
+              <img src="/assets/Layout/Brand/logo-colored.png" alt="Brand Logo" className="h-10 w-auto" />
             </div>
             <p className="text-gray-500 text-sm mb-6 pr-10">Best information about the company gies here but too lorem ipsum is.</p>
             <div className="flex gap-3">
@@ -319,10 +320,10 @@ export default function ProductListing() {
           <div>
             <h4 className="font-bold mb-4">Partnership</h4>
             <ul className="space-y-2 text-gray-500 text-sm">
-              <li>About Us</li>
-              <li>Find store</li>
-              <li>Categories</li>
-              <li>Blogs</li>
+              <li>Affiliates</li>
+              <li>Co-branding</li>
+              <li>Franchise</li>
+              <li>Retailers</li>
             </ul>
           </div>
           
@@ -349,8 +350,8 @@ export default function ProductListing() {
           <div>
             <h4 className="font-bold mb-4">Get app</h4>
             <div className="space-y-2 flex flex-col">
-              <div className="bg-gray-900 w-32 h-10 rounded text-white text-xs flex items-center justify-center">App Store</div>
-              <div className="bg-gray-900 w-32 h-10 rounded text-white text-xs flex items-center justify-center">Google Play</div>
+              <img src="/assets/Layout/Misc/market-button.png" alt="App Store" className="w-32 h-10 object-contain rounded" />
+              <img src="/assets/Layout/Misc/market-button.png" alt="Google Play" className="w-32 h-10 object-contain rounded" />
             </div>
           </div>
         </div>
@@ -359,7 +360,7 @@ export default function ProductListing() {
           <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-sm text-gray-600">
             <p>© 2023 Ecommerce.</p>
             <div className="flex items-center gap-1 cursor-pointer">
-              <div className="w-5 h-3 bg-red-500 mr-1"></div>
+              <img src="/assets/Layout1/Image/flags/US@2x.png" alt="US Flag" className="w-5 h-3 object-cover rounded-sm mr-1" />
               English
             </div>
           </div>

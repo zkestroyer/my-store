@@ -7,10 +7,8 @@ export default function EcommerceLayout() {
       {/* HEADER */}
       <header className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-blue-600 font-bold text-2xl">
-            {/* IMAGE ASSET LINK HERE: Brand Logo */}
-            <div className="w-8 h-8 bg-blue-500 rounded text-white flex items-center justify-center font-bold">B</div>
-            Brand
+          <div className="flex items-center gap-2">
+            <img src="/assets/Layout/Brand/logo-colored.png" alt="Brand Logo" className="h-10 w-auto" />
           </div>
           
           <div className="flex w-1/2 border border-blue-500 rounded-md overflow-hidden">
@@ -24,22 +22,22 @@ export default function EcommerceLayout() {
           <div className="flex gap-6 text-gray-500 text-xs text-center">
             <div className="flex flex-col items-center cursor-pointer">
               {/* IMAGE ASSET LINK HERE: Profile Icon */}
-              <div className="w-6 h-6 bg-gray-200 rounded-full mb-1"></div>
+              <img src="https://img.icons8.com/material-outlined/24/787878/user.png" alt="Profile Icon" className="w-6 h-6 rounded-full mb-1" />
               Profile
             </div>
             <div className="flex flex-col items-center cursor-pointer">
               {/* IMAGE ASSET LINK HERE: Message Icon */}
-              <div className="w-6 h-6 bg-gray-200 rounded mb-1"></div>
+              <img src="https://img.icons8.com/material-outlined/24/787878/speech-bubble.png" alt="Message Icon" className="w-6 h-6 rounded mb-1" />
               Message
             </div>
             <div className="flex flex-col items-center cursor-pointer">
               {/* IMAGE ASSET LINK HERE: Orders Icon */}
-              <div className="w-6 h-6 bg-gray-200 rounded mb-1"></div>
+              <img src="https://img.icons8.com/material-outlined/24/787878/box.png" alt="Orders Icon" className="w-6 h-6 rounded mb-1" />
               Orders
             </div>
             <div className="flex flex-col items-center cursor-pointer">
               {/* IMAGE ASSET LINK HERE: Cart Icon */}
-              <div className="w-6 h-6 bg-gray-200 rounded mb-1"></div>
+              <img src="https://img.icons8.com/material-outlined/24/787878/shopping-cart.png" alt="Cart Icon" className="w-6 h-6 rounded mb-1" />
               My cart
             </div>
           </div>
@@ -61,7 +59,7 @@ export default function EcommerceLayout() {
               <span className="cursor-pointer flex items-center gap-1">
                 Ship to
                 {/* IMAGE ASSET LINK HERE: Germany Flag */}
-                <div className="w-4 h-3 bg-red-500"></div> 
+                <img src= "/assets/Layout1/Image/flags/DE@2x.png" alt="Germany Flag" className="w-4 h-3 object-cover rounded-sm" />
               </span>
             </div>
           </div>
@@ -89,6 +87,7 @@ export default function EcommerceLayout() {
           {/* Banner */}
           <div className="w-3/5 bg-teal-100 rounded-lg relative overflow-hidden p-10 flex flex-col justify-center">
              {/* IMAGE ASSET LINK HERE: Hero Banner Background (Electronics flatlay) */}
+            <img src="/assets/Image/backgrounds/Banner-board-800x420 2.png" alt="Hero Banner" className="absolute inset-0 w-full h-full object-cover opacity-40" />
             <div className="relative z-10">
               <p className="text-xl text-teal-800 mb-1">Latest trending</p>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Electronic items</h2>
@@ -101,8 +100,8 @@ export default function EcommerceLayout() {
             <div className="bg-blue-50 p-4 rounded-lg flex flex-col h-1/3 justify-center">
               <div className="flex items-center gap-3 mb-3">
                  {/* IMAGE ASSET LINK HERE: User Avatar */}
-                <div className="w-10 h-10 bg-gray-300 rounded-full"></div>
-                <span className="text-sm">Hi, user<br/>let's get stated</span>
+                <img src="https://ui-avatars.com/api/?name=User&background=random" alt="User Avatar" className="w-10 h-10 rounded-full object-cover" />
+                <span className="text-sm">Hi, user<br/>let's get started</span>
               </div>
               <button className="bg-blue-600 text-white py-1.5 rounded text-sm w-full mb-2">Join now</button>
               <button className="bg-white text-blue-600 py-1.5 rounded text-sm w-full border border-gray-200">Log in</button>
@@ -132,8 +131,8 @@ export default function EcommerceLayout() {
             {[1, 2, 3, 4, 5].map((item) => (
               <div key={item} className="p-4 flex flex-col items-center justify-center w-1/5">
                 {/* IMAGE ASSET LINK HERE: Deal Product Image {item} */}
-                <div className="w-24 h-24 bg-gray-100 mb-3 rounded"></div>
-                <p className="text-sm text-gray-800 mb-2">Product Name</p>
+                <img src= "/assets/Image/tech/8.png" alt={`Deal ${item}`} className="w-24 h-24 mb-3 rounded object-cover" />
+                <p className="text-sm text-gray-800 mb-2">Smartwatches</p>
                 <span className="bg-red-100 text-red-600 text-xs px-2 py-1 rounded-full font-medium">-25%</span>
               </div>
             ))}
@@ -144,7 +143,8 @@ export default function EcommerceLayout() {
         <section className="bg-white border border-gray-200 rounded-lg flex overflow-hidden">
           <div className="w-1/4 p-6 relative flex flex-col justify-start">
              {/* IMAGE ASSET LINK HERE: Home & Outdoor Banner Image */}
-             <div className="absolute inset-0 bg-yellow-50/50 z-0"></div>
+             <img src="/assets/Image/backgrounds/Group 969.png" alt="Home and Outdoor" className="absolute inset-0 w-full h-full object-cover opacity-20" />
+             <div className="absolute inset-0 bg-yellow-50/60 z-0"></div>
              <div className="relative z-10">
                <h3 className="font-bold text-lg mb-4 w-1/2">Home and outdoor</h3>
                <button className="bg-white px-4 py-2 rounded text-sm font-medium shadow-sm">Source now</button>
@@ -154,11 +154,11 @@ export default function EcommerceLayout() {
              {[...Array(8)].map((_, idx) => (
               <div key={idx} className="p-4 flex justify-between relative">
                 <div>
-                  <h4 className="text-sm text-gray-800">Soft chairs</h4>
+                  <h4 className="text-sm text-gray-800">Sofa</h4>
                   <p className="text-xs text-gray-400 mt-1">From<br/>USD 19</p>
                 </div>
                 {/* IMAGE ASSET LINK HERE: Home Product {idx} */}
-                <div className="w-16 h-16 bg-gray-100 rounded absolute bottom-2 right-2"></div>
+                <img src= "/assets/Image/interior/1.png" alt={`Home product ${idx + 1}`} className="w-16 h-16 rounded absolute bottom-2 right-2 object-cover" />
               </div>
             ))}
           </div>
@@ -168,7 +168,8 @@ export default function EcommerceLayout() {
         <section className="bg-white border border-gray-200 rounded-lg flex overflow-hidden">
           <div className="w-1/4 p-6 relative flex flex-col justify-start">
              {/* IMAGE ASSET LINK HERE: Electronics Banner Image */}
-             <div className="absolute inset-0 bg-blue-50/50 z-0"></div>
+             <img src="/assets/Image/backgrounds/Group 982.png" alt="Consumer Electronics" className="absolute inset-0 w-full h-full object-cover opacity-20" />
+             <div className="absolute inset-0 bg-blue-50/60 z-0"></div>
              <div className="relative z-10">
                <h3 className="font-bold text-lg mb-4 w-1/2">Consumer electronics and gadgets</h3>
                <button className="bg-white px-4 py-2 rounded text-sm font-medium shadow-sm">Source now</button>
@@ -178,11 +179,11 @@ export default function EcommerceLayout() {
              {[...Array(8)].map((_, idx) => (
               <div key={idx} className="p-4 flex justify-between relative">
                 <div>
-                  <h4 className="text-sm text-gray-800">Smart watches</h4>
+                  <h4 className="text-sm text-gray-800">Gaming Console</h4>
                   <p className="text-xs text-gray-400 mt-1">From<br/>USD 19</p>
                 </div>
                 {/* IMAGE ASSET LINK HERE: Electronics Product {idx} */}
-                <div className="w-16 h-16 bg-gray-100 rounded absolute bottom-2 right-2"></div>
+                <img src= "/assets/Image/tech/6.png" alt={`Electronics product ${idx + 1}`} className="w-16 h-16 rounded absolute bottom-2 right-2 object-cover" />
               </div>
             ))}
           </div>
@@ -191,6 +192,7 @@ export default function EcommerceLayout() {
         {/* INQUIRY BANNER */}
         <section className="bg-gradient-to-r from-blue-500 to-blue-400 rounded-lg flex relative overflow-hidden">
            {/* IMAGE ASSET LINK HERE: Inquiry Background Graphic */}
+          <img src="/assets/Image/backgrounds/Mask group (1).png" alt="Inquiry Background" className="absolute right-0 top-0 h-full object-cover opacity-15" />
           <div className="w-1/2 p-10 text-white relative z-10 flex flex-col justify-center">
             <h2 className="text-3xl font-bold mb-4 w-3/4">An easy way to send requests to all suppliers</h2>
             <p className="text-sm text-blue-100 w-3/4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
@@ -218,7 +220,7 @@ export default function EcommerceLayout() {
              {[...Array(10)].map((_, idx) => (
               <div key={idx} className="bg-white border border-gray-200 rounded-lg p-4 flex flex-col">
                 {/* IMAGE ASSET LINK HERE: Recommended Product {idx} */}
-                <div className="w-full h-40 bg-gray-100 rounded mb-4 flex items-center justify-center">Image</div>
+                <img src={["/assets/Image/interior/3.png","/assets/Image/interior/6.png","/assets/Image/interior/7.png","/assets/Image/interior/8.png","/assets/Image/interior/9.png","/assets/Image/tech/6.png","/assets/Image/tech/8.png","/assets/Image/tech/image 23.png","/assets/Image/tech/image 29.png","/assets/Image/tech/image 32.png"][idx % 10]} alt={`Recommended product ${idx + 1}`} className="w-full h-40 rounded mb-4 object-cover" />
                 <p className="font-bold text-gray-900 mb-1">$10.30</p>
                 <p className="text-sm text-gray-500 line-clamp-2">T-shirts with multiple colors, for men</p>
               </div>
@@ -238,10 +240,10 @@ export default function EcommerceLayout() {
              ].map((service, idx) => (
               <div key={idx} className="bg-white border border-gray-200 rounded-lg overflow-hidden relative">
                 {/* IMAGE ASSET LINK HERE: Service Background {idx} */}
-                <div className="h-32 bg-gray-800 w-full"></div>
+                <img src={["/assets/Image/backgrounds/image 106.png","/assets/Image/backgrounds/image 107.png","/assets/Image/backgrounds/image 98.png","/assets/Image/backgrounds/Mask group (1).png"][idx % 4]} alt={`Service background ${idx + 1}`} className="h-32 w-full object-cover" />
                 {/* IMAGE ASSET LINK HERE: Service Icon {idx} */}
                 <div className="absolute right-4 top-24 w-12 h-12 bg-white rounded-full border border-gray-200 flex items-center justify-center shadow-sm">
-                  <div className="w-5 h-5 bg-blue-500 rounded-full"></div>
+                  <img src={`https://img.icons8.com/material-outlined/24/787878/search.png`} alt={`Service icon ${idx + 1}`} className="w-5 h-5 rounded-full" />
                 </div>
                 <div className="p-4 pt-6">
                   <p className="text-sm font-medium text-gray-800 w-3/4">{service.title}</p>
@@ -257,19 +259,19 @@ export default function EcommerceLayout() {
           <div className="grid grid-cols-5 gap-y-4 gap-x-2">
              {[
                { name: 'United Arab Emirates', domain: 'shopname.ae' },
-               { name: 'Australia', domain: 'shopname.ae' },
-               { name: 'United States', domain: 'shopname.ae' },
+               { name: 'Australia', domain: 'shopname.au' },
+               { name: 'United States', domain: 'shopname.us' },
                { name: 'Russia', domain: 'shopname.ru' },
                { name: 'Italy', domain: 'shopname.it' },
                { name: 'Denmark', domain: 'denmark.com.dk' },
                { name: 'France', domain: 'shopname.com.fr' },
                { name: 'Arabic Emirates', domain: 'shopname.ae' },
-               { name: 'China', domain: 'shopname.ae' },
+               { name: 'China', domain: 'shopname.cn' },
                { name: 'Great Britain', domain: 'shopname.co.uk' }
              ].map((region, idx) => (
               <div key={idx} className="flex items-center gap-3">
                  {/* IMAGE ASSET LINK HERE: Flag Icon {idx} */}
-                <div className="w-8 h-6 bg-gray-300 rounded-sm"></div>
+                <img src={'/assets/Layout1/Image/flags/' + ["AE@2x.png","US@2x.png","US@2x.png","RU@2x.png","IT@2x.png","DK@2x.png","FR@2x.png","AE@2x.png","CN@2x.png","GB@2x.png"][idx % 10]} alt={`Flag ${region.name}`} className="w-8 h-6 rounded-sm object-cover" />
                 <div>
                   <p className="text-sm text-gray-800">{region.name}</p>
                   <p className="text-xs text-gray-500">{region.domain}</p>
@@ -297,16 +299,14 @@ export default function EcommerceLayout() {
       <footer className="bg-white pt-12 pb-6 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-6 gap-8 mb-10">
           <div className="col-span-2">
-            <div className="flex items-center gap-2 text-blue-600 font-bold text-xl mb-4">
-              {/* IMAGE ASSET LINK HERE: Footer Logo */}
-              <div className="w-8 h-8 bg-blue-500 rounded text-white flex items-center justify-center font-bold">B</div>
-              Brand
+            <div className="flex items-center gap-2 mb-4">
+              <img src="/assets/Layout/Brand/logo-colored.png" alt="Brand Logo" className="h-10 w-auto" />
             </div>
             <p className="text-gray-500 text-sm mb-6 pr-10">Best information about the company gies here but too lorem ipsum is.</p>
             <div className="flex gap-3">
               {/* IMAGE ASSET LINK HERE: Social Icons (FB, Twitter, LinkedIn, IG, YT) */}
-              {[...Array(5)].map((_, i) => (
-                <div key={i} className="w-8 h-8 bg-gray-400 rounded-full text-white flex items-center justify-center text-xs">i</div>
+              {['FB','TW','LI','IG','YT'].map((icon) => (
+                <img key={icon} src={`https://via.placeholder.com/32?text=${icon}`} alt={`${icon} icon`} className="w-8 h-8 rounded-full object-cover" />
               ))}
             </div>
           </div>
@@ -324,10 +324,10 @@ export default function EcommerceLayout() {
           <div>
             <h4 className="font-bold mb-4">Partnership</h4>
             <ul className="space-y-2 text-gray-500 text-sm">
-              <li>About Us</li>
-              <li>Find store</li>
-              <li>Categories</li>
-              <li>Blogs</li>
+              <li>Affiliates</li>
+              <li>Co-branding</li>
+              <li>Franchise</li>
+              <li>Retailers</li>
             </ul>
           </div>
           
@@ -355,9 +355,9 @@ export default function EcommerceLayout() {
             <h4 className="font-bold mb-4">Get app</h4>
             <div className="space-y-2 flex flex-col">
                {/* IMAGE ASSET LINK HERE: App Store Button */}
-              <div className="bg-gray-900 w-32 h-10 rounded text-white text-xs flex items-center justify-center">App Store</div>
+              <img src="/assets/Layout/Misc/market-button.png" alt="App Store" className="w-32 h-10 object-contain rounded" />
                {/* IMAGE ASSET LINK HERE: Google Play Button */}
-              <div className="bg-gray-900 w-32 h-10 rounded text-white text-xs flex items-center justify-center">Google Play</div>
+              <img src="/assets/Layout/Misc/market-button.png" alt="Google Play" className="w-32 h-10 object-contain rounded mt-2" />
             </div>
           </div>
         </div>
@@ -368,7 +368,7 @@ export default function EcommerceLayout() {
             <p>© 2023 Ecommerce.</p>
             <div className="flex items-center gap-1 cursor-pointer">
               {/* IMAGE ASSET LINK HERE: USA Flag Icon */}
-              <div className="w-5 h-3 bg-red-500 mr-1"></div>
+              <img src="/assets/Layout1/Image/flags/US@2x.png" alt="USA Flag" className="w-5 h-3 object-cover rounded-sm mr-1" />
               English
             </div>
           </div>

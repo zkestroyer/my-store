@@ -4,14 +4,14 @@ export default function ProductGrid() {
   // Mock data for the products shown in the 3x3 grid
   const products = [
     { id: 1, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: 'product-1.png' },
-    { id: 2, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 5.9, imgSrc: 'product-2.png' },
-    { id: 3, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: null, rating: 7.5, imgSrc: 'product-3.png' },
-    { id: 4, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: 'product-4.png' },
-    { id: 5, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: 'product-5.png' },
-    { id: 6, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: null, rating: 7.5, imgSrc: 'product-6.png' },
-    { id: 7, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: 'product-7.png' },
-    { id: 8, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: 'product-8.png' },
-    { id: 9, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: null, rating: 7.5, imgSrc: 'product-9.png' },
+    { id: 2, title: 'Canon EOS R5 Mirrorless Camera', price: '3899.00', oldPrice: '4000.00', rating: 9.2, imgSrc: 'product-2.png' },
+    { id: 3, title: 'DJI Mavic Air 2 Fly More Combo', price: '988.00', oldPrice: null, rating: 8.5, imgSrc: 'product-3.png' },
+    { id: 4, title: 'Apple iPad Pro 11-inch (3rd Gen)', price: '799.00', oldPrice: '850.00', rating: 9.0, imgSrc: 'product-4.png' },
+    { id: 5, title: 'Samsung 49-Inch CRG9 Curved Monitor', price: '1199.00', oldPrice: '1499.00', rating: 8.8, imgSrc: 'product-5.png' },
+    { id: 6, title: 'Bose QuietComfort 45 Bluetooth', price: '329.00', oldPrice: null, rating: 9.1, imgSrc: 'product-6.png' },
+    { id: 7, title: 'Logitech MX Master 3 Advanced Mouse', price: '99.99', oldPrice: '120.00', rating: 9.5, imgSrc: 'product-7.png' },
+    { id: 8, title: 'Nintendo Switch OLED Model', price: '349.99', oldPrice: '399.00', rating: 8.9, imgSrc: 'product-8.png' },
+    { id: 9, title: 'Keychron K2 Wireless Mechanical Keyboard', price: '79.00', oldPrice: null, rating: 8.4, imgSrc: 'product-9.png' },
   ];
 
   // The active filters shown below the search bar
@@ -23,9 +23,8 @@ export default function ProductGrid() {
       {/* HEADER */}
       <header className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-blue-600 font-bold text-2xl">
-            <img src="/assets/Layout/Brand/logo-colored.png" alt="Brand Logo" className="h-8 w-auto rounded" />
-            Brand
+          <div className="flex items-center gap-2">
+            <img src="/assets/Layout/Brand/logo-colored.png" alt="Brand Logo" className="h-10 w-auto" />
           </div>
           
           <div className="flex w-1/2 border border-blue-500 rounded-md overflow-hidden">
@@ -38,16 +37,16 @@ export default function ProductGrid() {
 
           <div className="flex gap-6 text-gray-500 text-xs text-center">
             <div className="flex flex-col items-center cursor-pointer">
-              <div className="w-6 h-6 bg-gray-200 rounded-full mb-1"></div> Profile
+              <img src="https://img.icons8.com/material-outlined/24/787878/user.png" alt="Profile" className="w-6 h-6 mb-1 opacity-70" /> Profile
             </div>
             <div className="flex flex-col items-center cursor-pointer">
-              <div className="w-6 h-6 bg-gray-200 rounded mb-1"></div> Message
+              <img src="https://img.icons8.com/material-outlined/24/787878/speech-bubble.png" alt="Icon" className="w-6 h-6 mb-1 opacity-70" /> Message
             </div>
             <div className="flex flex-col items-center cursor-pointer">
-              <div className="w-6 h-6 bg-gray-200 rounded mb-1"></div> Orders
+              <img src="https://img.icons8.com/material-outlined/24/787878/speech-bubble.png" alt="Icon" className="w-6 h-6 mb-1 opacity-70" /> Orders
             </div>
             <div className="flex flex-col items-center cursor-pointer">
-              <div className="w-6 h-6 bg-gray-200 rounded mb-1"></div> My cart
+              <img src="https://img.icons8.com/material-outlined/24/787878/speech-bubble.png" alt="Icon" className="w-6 h-6 mb-1 opacity-70" /> My cart
             </div>
           </div>
         </div>
@@ -65,7 +64,7 @@ export default function ProductGrid() {
             <div className="flex gap-4 font-medium">
               <span className="cursor-pointer">English, USD ▾</span>
               <span className="cursor-pointer flex items-center gap-1">
-                Ship to <div className="w-4 h-3 bg-red-500"></div> ▾
+                Ship to <img src="/assets/Layout1/Image/flags/DE@2x.png" alt="Germany Flag" className="w-4 h-3 object-cover rounded-sm" /> ▾
               </span>
             </div>
           </div>
@@ -197,7 +196,7 @@ export default function ProductGrid() {
                 <div key={item.id} className="bg-white border border-gray-200 rounded-lg p-4 flex flex-col relative group">
                   {/* Image Container */}
                   <div className="w-full h-48 bg-gray-100 rounded mb-4 flex items-center justify-center p-4">
-                    <img src={`/assets/${item.imgSrc}`} alt={item.title} className="max-h-full max-w-full object-contain mix-blend-multiply" />
+                    <img src={["/assets/Image/interior/3.png","/assets/Image/interior/6.png","/assets/Image/interior/7.png","/assets/Image/interior/8.png","/assets/Image/interior/9.png","/assets/Image/tech/6.png","/assets/Image/tech/8.png","/assets/Image/tech/image 23.png","/assets/Image/tech/image 29.png","/assets/Image/tech/image 32.png"][(item.id - 1) % 10]} alt={item.title} className="max-h-full max-w-full object-contain mix-blend-multiply" />
                   </div>
 
                   {/* Price and Heart */}
@@ -259,9 +258,8 @@ export default function ProductGrid() {
       <footer className="bg-white pt-12 pb-6 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-6 gap-8 mb-10">
           <div className="col-span-2">
-            <div className="flex items-center gap-2 text-blue-600 font-bold text-xl mb-4">
-              <img src="/assets/logo.png" alt="Brand Logo" className="h-8 w-auto rounded" />
-              Brand
+            <div className="flex items-center gap-2 mb-4">
+              <img src="/assets/Layout/Brand/logo-colored.png" alt="Brand Logo" className="h-10 w-auto" />
             </div>
             <p className="text-gray-500 text-sm mb-6 pr-10">Best information about the company gies here but too lorem ipsum is.</p>
             <div className="flex gap-3">
@@ -284,10 +282,10 @@ export default function ProductGrid() {
           <div>
             <h4 className="font-bold mb-4">Partnership</h4>
             <ul className="space-y-2 text-gray-500 text-sm">
-              <li>About Us</li>
-              <li>Find store</li>
-              <li>Categories</li>
-              <li>Blogs</li>
+              <li>Affiliates</li>
+              <li>Co-branding</li>
+              <li>Franchise</li>
+              <li>Retailers</li>
             </ul>
           </div>
           
@@ -314,8 +312,8 @@ export default function ProductGrid() {
           <div>
             <h4 className="font-bold mb-4">Get app</h4>
             <div className="space-y-2 flex flex-col">
-              <div className="bg-gray-900 w-32 h-10 rounded text-white text-xs flex items-center justify-center">App Store</div>
-              <div className="bg-gray-900 w-32 h-10 rounded text-white text-xs flex items-center justify-center">Google Play</div>
+              <img src="/assets/Layout/Misc/market-button.png" alt="App Store" className="w-32 h-10 object-contain rounded" />
+              <img src="/assets/Layout/Misc/market-button.png" alt="Google Play" className="w-32 h-10 object-contain rounded" />
             </div>
           </div>
         </div>
@@ -324,7 +322,7 @@ export default function ProductGrid() {
           <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-sm text-gray-600">
             <p>© 2023 Ecommerce.</p>
             <div className="flex items-center gap-1 cursor-pointer">
-              <div className="w-5 h-3 bg-red-500 mr-1"></div>
+              <img src="/assets/Layout1/Image/flags/US@2x.png" alt="US Flag" className="w-5 h-3 object-cover rounded-sm mr-1" />
               English
             </div>
           </div>
