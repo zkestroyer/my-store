@@ -3,15 +3,15 @@ import React from 'react';
 export default function ProductGrid() {
   // Mock data for the products specifically following the 3x3 layout in the SS
   const products = [
-    { id: 1, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: '/assets/Image/tech/8.png' },
+    { id: 1, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: '/assets/Image/tech/image 33.png' },
     { id: 2, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 5.0, imgSrc: '/assets/Image/tech/image 23.png' },
-    { id: 3, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: null, rating: 7.5, imgSrc: '/assets/Image/tech/image 29.png' },
+    { id: 3, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: null, rating: 7.5, imgSrc: '/assets/Image/tech/image 23.png' },
     { id: 4, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: '/assets/Image/tech/image 32.png' },
-    { id: 5, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: '/assets/Image/tech/image 33.png' },
-    { id: 6, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: null, rating: 7.5, imgSrc: '/assets/Image/tech/image 34.png' },
-    { id: 7, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: '/assets/Image/tech/8.png' },
-    { id: 8, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: '/assets/Image/tech/6.png' },
-    { id: 9, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: null, rating: 7.5, imgSrc: '/assets/Image/tech/image 23.png' },
+    { id: 5, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: '/assets/Image/tech/6.png' },
+    { id: 6, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: null, rating: 7.5, imgSrc: '/assets/Image/tech/image 23.png' },
+    { id: 7, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: '/assets/Image/tech/image 34.png' },
+    { id: 8, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: '/assets/Image/tech/8.png' },
+    { id: 9, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: null, rating: 7.5, imgSrc: '/assets/Image/tech/image 33.png' },
   ];
 
   const activeFilters = ['Samsung', 'Apple', 'Poco', 'Metallic', '4 star', '3 star'];
@@ -51,9 +51,9 @@ export default function ProductGrid() {
               ))}
             </div>
             <div className="flex gap-4">
-              <span className="cursor-pointer">English, USD ▼</span>
-              <span className="cursor-pointer flex items-center gap-1">
-                Ship to <img src="/assets/Layout1/Image/flags/DE@2x.png" alt="Germany" className="w-5 h-3.5 object-cover" /> ▼
+              <span>English, USD <img src="/assets/Layout/Form/input-group/Icon/control/Vector.png" className="w-3 h-2" /> </span>
+              <span className="flex items-center gap-1">
+                Ship to <img src="/assets/Layout1/Image/flags/DE@2x.png" alt="Germany" className="w-5 h-3" /> <img src="/assets/Layout/Form/input-group/Icon/control/Vector.png" alt="Dropdown" className="w-3 h-2" />
               </span>
             </div>
           </div>
@@ -189,7 +189,9 @@ export default function ProductGrid() {
         <div className="bg-gray-100 py-5">
           <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-sm text-gray-500 font-medium">
             <p>© 2023 Ecommerce.</p>
-            <p className="cursor-pointer">English ▲</p>
+            <p className="flex items-center gap-2 cursor-pointer font-medium">
+              <img src="/assets/Layout1/Image/flags/US@2x.png" className="w-5" /> English <img src="/assets/Layout/Form/input-group/Icon/control/Vector2.png" className="w-3 h-2" />
+            </p>
           </div>
         </div>
       </footer>

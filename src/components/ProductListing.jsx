@@ -59,7 +59,7 @@ export default function ProductDetail() {
           {/* 1. Left: Gallery */}
           <div className="w-1/3 flex flex-col gap-4">
             <div className="border border-gray-200 rounded-lg p-10 h-[380px] flex items-center justify-center">
-              <img src="/assets/Layout/alibaba/Image/cloth/image 24.png" alt="Main" className="max-h-full object-contain" />
+              <img src="/assets/Layout/alibaba/Image/cloth/grey.jpg" alt="Main" className="max-h-full object-contain" />
             </div>
             <div className="flex justify-between gap-2">
               {thumbnails.map((thumb, i) => (
@@ -224,8 +224,8 @@ export default function ProductDetail() {
         <div className="bg-gray-100 py-4">
           <div className="max-w-7xl mx-auto px-4 flex justify-between text-sm text-gray-500">
             <p>© 2023 Ecommerce.</p>
-            <p className="flex items-center gap-2 cursor-pointer">
-              <img src="/assets/Layout1/Image/flags/US@2x.png" className="w-5" alt="US" /> English ▲
+            <p className="flex items-center gap-2 cursor-pointer font-medium">
+              <img src="/assets/Layout1/Image/flags/US@2x.png" className="w-5" /> English <img src="/assets/Layout/Form/input-group/Icon/control/Vector2.png" className="w-3 h-2" />
             </p>
           </div>
         </div>

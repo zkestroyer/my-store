@@ -8,12 +8,12 @@ export default function ProductListing() {
 
   // Main Product List Data
   const products = [
-    { id: 1, title: 'Canon C-os EOS 2000D, Black 10x zoom', price: '$998.00', oldPrice: '$1128.00', rating: 7.5, orders: 154, shipping: 'Free Shipping', desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', img: '/assets/Layout/alibaba/Image/cloth/image 24.png' },
-    { id: 2, title: 'GoPro HERO6 4K Action Camera - Black', price: '$998.00', oldPrice: null, rating: 7.5, orders: 154, shipping: 'Free Shipping', desc: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.', img: '/assets/Image/tech/8.png' },
-    { id: 3, title: 'GoPro HERO6 4K Action Camera - Black', price: '$998.00', oldPrice: null, rating: 7.5, orders: 154, shipping: 'Free Shipping', desc: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.', img: '/assets/Image/tech/image 34.png' },
-    { id: 4, title: 'GoPro HERO6 4K Action Camera - Black', price: '$998.00', oldPrice: null, rating: 7.5, orders: 154, shipping: 'Free Shipping', desc: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.', img: '/assets/Image/tech/image 33.png' },
-    { id: 5, title: 'GoPro HERO6 4K Action Camera - Black', price: '$998.00', oldPrice: '$1128.00', rating: 7.5, orders: 154, shipping: 'Free Shipping', desc: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.', img: '/assets/Image/tech/image 32.png' },
-    { id: 6, title: 'GoPro HERO6 4K Action Camera - Black', price: '$998.00', oldPrice: null, rating: 7.5, orders: 154, shipping: 'Free Shipping', desc: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.', img: '/assets/Image/tech/image 29.png' },
+    { id: 1, title: 'Canon C-os EOS 2000D, Black 10x zoom', price: '$998.00', oldPrice: '$1128.00', rating: 7.5, orders: 154, shipping: 'Free Shipping', desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', img: '/assets/Image/tech/image 33.png' },
+    { id: 2, title: 'GoPro HERO6 4K Action Camera - Black', price: '$998.00', oldPrice: null, rating: 7.5, orders: 154, shipping: 'Free Shipping', desc: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.', img: '/assets/Image/tech/image 23.png' },
+    { id: 3, title: 'GoPro HERO6 4K Action Camera - Black', price: '$998.00', oldPrice: null, rating: 7.5, orders: 154, shipping: 'Free Shipping', desc: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.', img: '/assets/Image/tech/image 32.png' },
+    { id: 4, title: 'GoPro HERO6 4K Action Camera - Black', price: '$998.00', oldPrice: null, rating: 7.5, orders: 154, shipping: 'Free Shipping', desc: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.', img: '/assets/Image/tech/image 34.png' },
+    { id: 5, title: 'GoPro HERO6 4K Action Camera - Black', price: '$998.00', oldPrice: '$1128.00', rating: 7.5, orders: 154, shipping: 'Free Shipping', desc: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.', img: '/assets/Image/tech/8.png' },
+    { id: 6, title: 'GoPro HERO6 4K Action Camera - Black', price: '$998.00', oldPrice: null, rating: 7.5, orders: 154, shipping: 'Free Shipping', desc: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.', img: '/assets/Layout/alibaba/Image/tech/image 86.png' },
   ];
 
   return (
@@ -46,8 +46,10 @@ export default function ProductListing() {
               {['Hot offers', 'Gift boxes', 'Projects', 'Menu item', 'Help'].map(item => <span key={item} className="cursor-pointer">{item}</span>)}
             </div>
             <div className="flex gap-4">
-              <span>English, USD ▼</span>
-              <span className="flex items-center gap-1">Ship to <img src="/assets/Layout1/Image/flags/DE@2x.png" className="w-5 h-3" /> ▼</span>
+              <span>English, USD <img src="/assets/Layout/Form/input-group/Icon/control/Vector.png" className="w-3 h-2" /> </span>
+              <span className="flex items-center gap-1">
+                Ship to <img src="/assets/Layout1/Image/flags/DE@2x.png" alt="Germany" className="w-5 h-3" /> <img src="/assets/Layout/Form/input-group/Icon/control/Vector.png" alt="Dropdown" className="w-3 h-2" />
+              </span>
             </div>
           </div>
         </div>
@@ -184,7 +186,9 @@ export default function ProductListing() {
         <div className="bg-gray-100 py-4">
           <div className="max-w-7xl mx-auto px-4 flex justify-between text-sm text-gray-500">
             <p>© 2023 Ecommerce.</p>
-            <p>English ▲</p>
+            <p className="flex items-center gap-2 cursor-pointer font-medium">
+              <img src="/assets/Layout1/Image/flags/US@2x.png" className="w-5" /> English <img src="/assets/Layout/Form/input-group/Icon/control/Vector2.png" className="w-3 h-2" />
+            </p>
           </div>
         </div>
       </footer>
