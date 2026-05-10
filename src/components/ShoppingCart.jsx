@@ -1,290 +1,217 @@
 import React from 'react';
 
 export default function ShoppingCart() {
-  // Mock data for the cart items
+  // Main Cart Items
   const cartItems = [
-    { id: 1, title: 'T-shirts with multiple colors, for men and lady', size: 'medium', color: 'blue', material: 'Plastic', seller: 'Artel Market', price: '78.99', qty: 9, img: 'cart-1.png' },
-    { id: 2, title: 'T-shirts with multiple colors, for men and lady', size: 'medium', color: 'blue', material: 'Plastic', seller: 'Best factory LLC', price: '39.00', qty: 3, img: 'cart-2.png' },
-    { id: 3, title: 'T-shirts with multiple colors, for men and lady', size: 'medium', color: 'blue', material: 'Plastic', seller: 'Artel Market', price: '170.50', qty: 1, img: 'cart-3.png' },
+    { id: 1, title: 'T-shirts with multiple colors, for men and lady', size: 'medium', color: 'blue', material: 'Plastic', seller: 'Artel Market', price: '78.99', qty: 9, img: '/assets/Layout/alibaba/Image/cloth/image 24.png' },
+    { id: 2, title: 'T-shirts with multiple colors, for men and lady', size: 'medium', color: 'blue', material: 'Plastic', seller: 'Best factory LLC', price: '39.00', qty: 3, img: '/assets/Layout/alibaba/Image/cloth/Bitmap.png' },
+    { id: 3, title: 'T-shirts with multiple colors, for men and lady', size: 'medium', color: 'blue', material: 'Plastic', seller: 'Artel Market', price: '170.50', qty: 1, img: '/assets/Layout/alibaba/Image/cloth/image 26.png' },
   ];
 
-  // Mock data for the "Saved for later" section
+  // Saved for later grid
   const savedItems = [
-    { id: 1, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', img: 'saved-1.png' },
-    { id: 2, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', img: 'saved-2.png' },
-    { id: 3, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', img: 'saved-3.png' },
-    { id: 4, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', img: 'saved-4.png' },
+    { id: 1, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', img: '/assets/Image/tech/8.png' },
+    { id: 2, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', img: '/assets/Image/tech/image 23.png' },
+    { id: 3, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', img: '/assets/Image/tech/image 32.png' },
+    { id: 4, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', img: '/assets/Image/tech/image 34.png' },
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans text-gray-800">
+    <div className="min-h-screen bg-[#F7FAFC] font-sans text-[#1C1C1C]">
       
-      {/* HEADER (Simplified for Cart view) */}
+      {/* HEADER */}
       <header className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <img src="/assets/Layout/Brand/logo-colored.png" alt="Brand Logo" className="h-10 w-auto" />
-          </div>
-
-          <div className="flex gap-6 text-gray-500 text-xs text-center">
-            <div className="flex flex-col items-center cursor-pointer">
-              <img src="https://img.icons8.com/material-outlined/24/787878/user.png" alt="Profile" className="w-6 h-6 mb-1 opacity-70" /> Profile
-            </div>
-            <div className="flex flex-col items-center cursor-pointer">
-              <img src="https://img.icons8.com/material-outlined/24/787878/speech-bubble.png" alt="Icon" className="w-6 h-6 mb-1 opacity-70" /> Message
-            </div>
-            <div className="flex flex-col items-center cursor-pointer">
-              <img src="https://img.icons8.com/material-outlined/24/787878/speech-bubble.png" alt="Icon" className="w-6 h-6 mb-1 opacity-70" /> Orders
-            </div>
-            <div className="flex flex-col items-center cursor-pointer text-blue-600">
-              <img src="https://img.icons8.com/material-outlined/24/787878/shopping-cart.png" alt="Cart" className="w-6 h-6 mb-1" /> My cart
-            </div>
+          <div className="text-blue-600 font-bold text-2xl">Brand</div>
+          <div className="flex gap-8 text-gray-500 text-[12px] text-center">
+            <HeaderIcon src="https://img.icons8.com/material-outlined/24/787878/user.png" label="Profile" />
+            <HeaderIcon src="https://img.icons8.com/material-outlined/24/787878/speech-bubble.png" label="Message" />
+            <HeaderIcon src="https://img.icons8.com/material-outlined/24/787878/box.png" label="Orders" />
+            <HeaderIcon src="https://img.icons8.com/material-outlined/24/0D6EFD/shopping-cart.png" label="My cart" active />
           </div>
         </div>
       </header>
 
-      {/* MAIN CONTENT AREA */}
       <main className="max-w-7xl mx-auto px-4 py-8">
-        
-        <h1 className="text-2xl font-bold text-gray-900 mb-6">My cart (3)</h1>
+        <h1 className="text-2xl font-bold mb-6">My cart (3)</h1>
 
         <div className="flex flex-col lg:flex-row gap-6">
           
-          {/* LEFT COLUMN: Cart Items & Saved Items */}
+          {/* LEFT: Cart List & Badges */}
           <div className="lg:w-3/4">
-            
-            {/* Cart Items List */}
-            <div className="bg-white border border-gray-200 rounded-lg mb-6">
-              <div className="p-5 space-y-5 divide-y divide-gray-200">
-                {cartItems.map((item, index) => (
-                  <div key={item.id} className={`flex justify-between ${index !== 0 ? 'pt-5' : ''}`}>
+            <div className="bg-white border border-gray-200 rounded-lg overflow-hidden mb-6">
+              <div className="p-5 space-y-6">
+                {cartItems.map((item) => (
+                  <div key={item.id} className="flex justify-between border-b border-gray-100 pb-6 last:border-0 last:pb-0">
                     <div className="flex gap-4">
-                      {/* Product Image */}
-                      <div className="w-20 h-20 bg-gray-100 rounded border border-gray-200 flex items-center justify-center p-2 flex-shrink-0">
-                        <img src={'/assets/Layout/alibaba/Image/cloth/' + ["2 1.png","Bitmap (2).png","Bitmap.png","image 24.png","image 26.png","image 30.png"][(item.id - 1) % 6]} alt={item.title} className="max-h-full object-contain mix-blend-multiply" />
+                      <div className="w-20 h-20 bg-gray-50 border border-gray-200 rounded-md flex items-center justify-center p-2">
+                        <img src={item.img} alt="item" className="max-h-full object-contain" />
                       </div>
-                      {/* Product Details */}
-                      <div className="flex flex-col justify-between">
-                        <div>
-                          <h3 className="font-medium text-gray-900 leading-tight">{item.title}</h3>
-                          <p className="text-sm text-gray-500 mt-1">Size: {item.size}, Color: {item.color}, Material: {item.material}</p>
-                          <p className="text-sm text-gray-500">Seller: {item.seller}</p>
-                        </div>
-                        <div className="flex gap-4 mt-3 text-sm font-medium">
-                          <button className="text-red-500 hover:text-red-600 shadow-sm border border-gray-200 px-3 py-1 rounded">Remove</button>
-                          <button className="text-blue-600 hover:text-blue-700 shadow-sm border border-gray-200 px-3 py-1 rounded">Save for later</button>
+                      <div>
+                        <h3 className="font-medium text-[16px] mb-1">{item.title}</h3>
+                        <p className="text-sm text-gray-400">Size: {item.size}, Color: {item.color}, Material: {item.material}</p>
+                        <p className="text-sm text-gray-400">Seller: {item.seller}</p>
+                        <div className="flex gap-2 mt-3">
+                          <button className="text-[#FA3434] border border-gray-200 px-3 py-1 rounded-md text-sm font-medium hover:bg-red-50">Remove</button>
+                          <button className="text-blue-600 border border-gray-200 px-3 py-1 rounded-md text-sm font-medium hover:bg-blue-50">Save for later</button>
                         </div>
                       </div>
                     </div>
-
-                    {/* Price & Quantity */}
-                    <div className="flex flex-col items-end justify-between">
-                      <span className="font-bold text-lg text-gray-900">${item.price}</span>
-                      <select 
-                        className="border border-gray-300 rounded px-3 py-1.5 outline-none bg-white text-sm"
-                        defaultValue={item.qty}
-                      >
-                        {[...Array(10)].map((_, i) => (
-                          <option key={i+1} value={i+1}>Qty: {i+1}</option>
-                        ))}
+                    <div className="text-right flex flex-col justify-between">
+                      <span className="font-bold text-lg">${item.price}</span>
+                      <select className="border border-gray-300 rounded-md px-2 py-1.5 text-sm bg-white outline-none">
+                        <option>Qty: {item.qty}</option>
+                        {[1, 2, 3, 4, 5].map(q => <option key={q}>Qty: {q}</option>)}
                       </select>
                     </div>
                   </div>
                 ))}
               </div>
-
-              {/* Cart Footer Actions */}
-              <div className="p-5 border-t border-gray-200 flex justify-between items-center">
-                <button className="bg-blue-600 text-white px-5 py-2 rounded font-medium flex items-center gap-2 hover:bg-blue-700 transition-colors text-sm shadow-sm">
+              <div className="bg-white p-5 border-t border-gray-100 flex justify-between">
+                <button className="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold flex items-center gap-2">
                   <span>←</span> Back to shop
                 </button>
-                <button className="text-blue-600 font-medium text-sm hover:underline">
-                  Remove all
-                </button>
+                <button className="text-blue-600 border border-gray-200 px-4 py-2 rounded-lg font-bold hover:bg-gray-50">Remove all</button>
               </div>
             </div>
 
-            {/* Trust Badges */}
-            <div className="flex gap-8 mb-8">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 text-xl">🔒</div>
-                <div>
-                  <h4 className="text-gray-800 text-sm font-medium">Secure payment</h4>
-                  <p className="text-gray-400 text-xs">Have you ever finally just</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 text-xl">💬</div>
-                <div>
-                  <h4 className="text-gray-800 text-sm font-medium">Customer support</h4>
-                  <p className="text-gray-400 text-xs">Have you ever finally just</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 text-xl">🚚</div>
-                <div>
-                  <h4 className="text-gray-800 text-sm font-medium">Free delivery</h4>
-                  <p className="text-gray-400 text-xs">Have you ever finally just</p>
-                </div>
-              </div>
+            {/* Features/Badges */}
+            <div className="flex gap-10 mb-8">
+              <Badge icon="🔒" title="Secure payment" desc="Have you ever finally just" />
+              <Badge icon="💬" title="Customer support" desc="Have you ever finally just" />
+              <Badge icon="🚚" title="Free delivery" desc="Have you ever finally just" />
             </div>
 
-            {/* Saved for Later */}
-            <div className="bg-white border border-gray-200 rounded-lg mb-8">
-              <h2 className="text-xl font-bold p-5 border-b border-gray-200">Saved for later</h2>
-              <div className="p-5 grid grid-cols-4 gap-4">
+            {/* Saved for later */}
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
+              <h2 className="text-xl font-bold mb-6">Saved for later</h2>
+              <div className="grid grid-cols-4 gap-5">
                 {savedItems.map((item) => (
-                  <div key={item.id} className="flex flex-col group">
-                    <div className="bg-gray-100 rounded-lg h-48 flex items-center justify-center p-4 mb-4">
-                      <img src={["/assets/Image/interior/3.png","/assets/Image/interior/6.png","/assets/Image/interior/7.png","/assets/Image/interior/8.png","/assets/Image/interior/9.png","/assets/Image/tech/6.png","/assets/Image/tech/8.png","/assets/Image/tech/image 23.png","/assets/Image/tech/image 29.png","/assets/Image/tech/image 32.png"][item.id % 10]} alt={item.title} className="max-h-full object-contain mix-blend-multiply" />
+                  <div key={item.id}>
+                    <div className="bg-[#EEEEEE] rounded-lg h-44 flex items-center justify-center p-6 mb-3">
+                      <img src={item.img} alt="saved" className="max-h-full object-contain mix-blend-multiply" />
                     </div>
-                    <span className="font-bold text-lg text-gray-900 mb-1">${item.price}</span>
-                    <h4 className="text-sm text-gray-600 line-clamp-2 mb-3 h-10">{item.title}</h4>
-                    <button className="border border-gray-300 text-blue-600 rounded py-2 text-sm font-medium flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors shadow-sm w-max px-4">
+                    <p className="font-bold text-lg mb-1">${item.price}</p>
+                    <p className="text-sm text-gray-500 leading-tight mb-4 line-clamp-2">{item.title}</p>
+                    <button className="text-blue-600 border border-gray-200 px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:bg-blue-50 transition">
                       🛒 Move to cart
                     </button>
                   </div>
                 ))}
               </div>
             </div>
-
-            {/* DISCOUNT BANNER */}
-            <div className="bg-blue-600 rounded-lg flex justify-between items-center px-8 py-6 text-white overflow-hidden relative shadow-sm">
-              <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-blue-700 transform skew-x-12 translate-x-10"></div>
-              <div className="relative z-10">
-                <h2 className="text-2xl font-bold mb-1">Super discount on more than 100 USD</h2>
-                <p className="text-blue-200 text-sm">Have you ever finally just write dummy info</p>
-              </div>
-              <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded font-medium shadow relative z-10 transition-colors">
-                Shop now
-              </button>
-            </div>
-
           </div>
 
-          {/* RIGHT COLUMN: Order Summary */}
+          {/* RIGHT: Order Summary */}
           <div className="lg:w-1/4">
-            
-            {/* Coupon Card */}
-            <div className="bg-white border border-gray-200 rounded-lg p-4 mb-4 shadow-sm">
-              <h3 className="text-gray-600 text-sm mb-3">Have a coupon?</h3>
-              <div className="flex border border-gray-300 rounded overflow-hidden focus-within:border-blue-500">
-                <input type="text" placeholder="Add coupon" className="w-full px-3 py-2 text-sm outline-none" />
-                <button className="bg-white border-l border-gray-300 text-blue-600 px-4 py-2 text-sm font-medium hover:bg-gray-50">Apply</button>
+            <div className="bg-white border border-gray-200 rounded-lg p-4 mb-4">
+              <p className="text-gray-500 text-sm mb-3">Have a coupon?</p>
+              <div className="flex border border-gray-300 rounded-lg overflow-hidden">
+                <input type="text" placeholder="Add coupon" className="w-full px-3 py-2 outline-none text-sm" />
+                <button className="bg-white border-l border-gray-300 text-blue-600 px-4 py-2 font-bold text-sm">Apply</button>
               </div>
             </div>
 
-            {/* Checkout Card */}
             <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
-              <div className="space-y-3 text-sm text-gray-600 mb-4 border-b border-gray-200 pb-4">
-                <div className="flex justify-between">
+              <div className="space-y-3 pb-4 border-b border-gray-100 mb-4 text-sm">
+                <div className="flex justify-between text-gray-500">
                   <span>Subtotal:</span>
-                  <span className="text-gray-900">$1403.97</span>
+                  <span>$1403.97</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between text-[#FA3434]">
                   <span>Discount:</span>
-                  <span className="text-red-500">- $60.00</span>
+                  <span>- $60.00</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between text-[#00B517]">
                   <span>Tax:</span>
-                  <span className="text-green-500">+ $14.00</span>
+                  <span>+ $14.00</span>
                 </div>
               </div>
-              
-              <div className="flex justify-between font-bold text-lg text-gray-900 mb-6">
+              <div className="flex justify-between font-bold text-xl mb-6">
                 <span>Total:</span>
                 <span>$1357.97</span>
               </div>
-
-              <button className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded mb-4 shadow-sm transition-colors">
-                Checkout
-              </button>
-
-              <div className="flex justify-center gap-2">
-                <img src="/assets/Layout1/Image/flags/US@2x.png" alt="Visa" className="w-10 h-6 object-cover bg-white rounded border border-gray-200 px-1 shadow-sm" />
-                <img src="/assets/Layout1/Image/flags/DE@2x.png" alt="Mastercard" className="w-10 h-6 object-cover bg-white rounded border border-gray-200 px-1 shadow-sm" />
-                <img src="/assets/Layout1/Image/flags/GB@2x.png" alt="PayPal" className="w-10 h-6 object-cover bg-white rounded border border-gray-200 px-1 shadow-sm" />
+              <button className="w-full bg-[#00B517] text-white font-bold py-3 rounded-lg text-lg hover:bg-green-600 shadow-md">Checkout</button>
+              <div className="flex justify-center gap-2 mt-4">
+                {/* Visual payment card placeholders */}
+                {['visa', 'mastercard', 'paypal', 'apple', 'gpay'].map(card => (
+                  <div key={card} className="w-10 h-6 bg-gray-100 rounded border border-gray-200"></div>
+                ))}
               </div>
             </div>
 
+            {/* Bonus Banner */}
+            <div className="mt-6 bg-[#005ADE] rounded-lg p-6 text-white relative overflow-hidden">
+                <div className="absolute right-[-20px] top-0 bottom-0 w-1/2 bg-[#0067FF] skew-x-12"></div>
+                <div className="relative z-10">
+                    <p className="text-lg font-bold leading-tight mb-4">Super discount on more than 100 USD</p>
+                    <button className="bg-[#FF9017] text-white px-4 py-2 rounded-lg text-sm font-bold">Shop now</button>
+                </div>
+            </div>
           </div>
         </div>
       </main>
 
       {/* FOOTER */}
-      <footer className="bg-white pt-12 pb-6 border-t border-gray-200 mt-10">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-6 gap-8 mb-10">
+      <footer className="bg-white border-t border-gray-200 pt-12 mt-10">
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-6 gap-8 pb-10">
           <div className="col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <img src="/assets/Layout/Brand/logo-colored.png" alt="Brand Logo" className="h-10 w-auto" />
-            </div>
-            <p className="text-gray-500 text-sm mb-6 pr-10">Best information about the company gies here but too lorem ipsum is.</p>
-            <div className="flex gap-3">
-              {[...Array(5)].map((_, i) => (
-                <div key={i} className="w-8 h-8 bg-gray-400 rounded-full text-white flex items-center justify-center text-xs">i</div>
+            <div className="text-blue-600 font-bold text-2xl mb-5">Brand</div>
+            <p className="text-gray-400 text-sm leading-relaxed pr-10">Best information about the company gies here but too lorem ipsum is.</p>
+            <div className="flex gap-2 mt-4">
+              {['FB', 'TW', 'LI', 'IG', 'YT'].map(s => (
+                <div key={s} className="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center text-white text-[10px] font-bold">{s}</div>
               ))}
             </div>
           </div>
-          
-          <div>
-            <h4 className="font-bold mb-4">About</h4>
-            <ul className="space-y-2 text-gray-500 text-sm">
-              <li>About Us</li>
-              <li>Find store</li>
-              <li>Categories</li>
-              <li>Blogs</li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-bold mb-4">Partnership</h4>
-            <ul className="space-y-2 text-gray-500 text-sm">
-              <li>Affiliates</li>
-              <li>Co-branding</li>
-              <li>Franchise</li>
-              <li>Retailers</li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-bold mb-4">Information</h4>
-            <ul className="space-y-2 text-gray-500 text-sm">
-              <li>Help Center</li>
-              <li>Money Refund</li>
-              <li>Shipping</li>
-              <li>Contact us</li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-bold mb-4">For users</h4>
-            <ul className="space-y-2 text-gray-500 text-sm">
-              <li>Login</li>
-              <li>Register</li>
-              <li>Settings</li>
-              <li>My Orders</li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold mb-4">Get app</h4>
-            <div className="space-y-2 flex flex-col">
-              <img src="/assets/Layout/Misc/market-button.png" alt="App Store" className="w-32 h-10 object-contain rounded" />
-              <img src="/assets/Layout/Misc/market-button.png" alt="Google Play" className="w-32 h-10 object-contain rounded" />
-            </div>
-          </div>
+          <FooterCol title="About" links={['About Us', 'Find store', 'Categories', 'Blogs']} />
+          <FooterCol title="Partnership" links={['Affiliates', 'Co-branding', 'Franchise', 'Retailers']} />
+          <FooterCol title="Information" links={['Help Center', 'Money Refund', 'Shipping', 'Contact us']} />
+          <FooterCol title="For users" links={['Login', 'Register', 'Settings', 'My Orders']} />
         </div>
-
-        <div className="bg-gray-100 py-4 border-t border-gray-200">
-          <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-sm text-gray-600">
-            <p>© 2023 Ecommerce.</p>
-            <div className="flex items-center gap-1 cursor-pointer">
-              <img src="/assets/Layout1/Image/flags/US@2x.png" alt="US Flag" className="w-5 h-3 object-cover rounded-sm mr-1" />
-              English
-            </div>
-          </div>
+        <div className="bg-gray-100 py-5">
+           <div className="max-w-7xl mx-auto px-4 flex justify-between text-gray-500 text-sm">
+              <p>© 2023 Ecommerce.</p>
+              <p className="flex items-center gap-2">
+                <img src="/assets/Layout1/Image/flags/US@2x.png" className="w-5" alt="US" /> English ▲
+              </p>
+           </div>
         </div>
       </footer>
+    </div>
+  );
+}
+
+// --- Internal Reusable Components ---
+
+function HeaderIcon({ src, label, active = false }) {
+  return (
+    <div className={`flex flex-col items-center cursor-pointer ${active ? 'text-blue-600' : 'hover:text-blue-600'}`}>
+      <img src={src} className="w-5 h-5 mb-1" alt={label} />
+      <span>{label}</span>
+    </div>
+  );
+}
+
+function Badge({ icon, title, desc }) {
+  return (
+    <div className="flex items-center gap-3">
+      <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center text-xl">{icon}</div>
+      <div>
+        <h4 className="font-medium text-sm text-[#1C1C1C]">{title}</h4>
+        <p className="text-xs text-gray-400">{desc}</p>
+      </div>
+    </div>
+  );
+}
+
+function FooterCol({ title, links }) {
+  return (
+    <div>
+      <h4 className="font-bold mb-4">{title}</h4>
+      <ul className="space-y-1 text-gray-400 text-sm">
+        {links.map(l => <li key={l} className="cursor-pointer hover:text-blue-600">{l}</li>)}
+      </ul>
     </div>
   );
 }
