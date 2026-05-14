@@ -1,17 +1,17 @@
 import React from 'react';
 
-export default function ProductGrid() {
+export default function ProductGrid({ navigate, onSelectProduct, addToCart, cartCount }) {
   // Mock data for the products specifically following the 3x3 layout in the SS
   const products = [
     { id: 1, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: '/assets/Image/tech/image 33.png' },
     { id: 2, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 5.0, imgSrc: '/assets/Image/tech/image 23.png' },
-    { id: 3, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: null, rating: 7.5, imgSrc: '/assets/Image/tech/image 23.png' },
-    { id: 4, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: '/assets/Image/tech/image 32.png' },
-    { id: 5, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: '/assets/Image/tech/6.png' },
-    { id: 6, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: null, rating: 7.5, imgSrc: '/assets/Image/tech/image 23.png' },
-    { id: 7, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: '/assets/Image/tech/image 34.png' },
-    { id: 8, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: '/assets/Image/tech/8.png' },
-    { id: 9, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: null, rating: 7.5, imgSrc: '/assets/Image/tech/image 33.png' },
+    { id: 18, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: null, rating: 7.5, imgSrc: '/assets/Image/tech/image 23.png' },
+    { id: 3, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: '/assets/Image/tech/image 32.png' },
+    { id: 7, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: '/assets/Image/tech/6.png' },
+    { id: 19, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: null, rating: 7.5, imgSrc: '/assets/Image/tech/image 23.png' },
+    { id: 4, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: '/assets/Image/tech/image 34.png' },
+    { id: 5, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: '1128.00', rating: 7.5, imgSrc: '/assets/Image/tech/8.png' },
+    { id: 20, title: 'GoPro HERO6 4K Action Camera - Black', price: '99.50', oldPrice: null, rating: 7.5, imgSrc: '/assets/Image/tech/image 33.png' },
   ];
 
   const activeFilters = ['Samsung', 'Apple', 'Poco', 'Metallic', '4 star', '3 star'];
@@ -23,7 +23,7 @@ export default function ProductGrid() {
       <header className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src="/assets/Layout/Brand/logo-colored.png" alt="Brand Logo" className="h-10 w-auto" />
+            <img src="/assets/Layout/Brand/logo-colored.png" alt="Brand Logo" className="h-10 w-auto cursor-pointer" onClick={() => navigate('home')} />
           </div>
           
           <div className="flex w-1/2 border-2 border-blue-600 rounded-md overflow-hidden">
@@ -38,14 +38,14 @@ export default function ProductGrid() {
             <NavItem src="https://img.icons8.com/material-outlined/24/787878/user.png" label="Profile" />
             <NavItem src="https://img.icons8.com/material-outlined/24/787878/speech-bubble.png" label="Message" />
             <NavItem src="https://img.icons8.com/material-outlined/24/787878/box.png" label="Orders" />
-            <NavItem src="https://img.icons8.com/material-outlined/24/787878/shopping-cart.png" label="My cart" />
+            <NavItem src="https://img.icons8.com/material-outlined/24/787878/shopping-cart.png" label={`My cart${cartCount ? ` (${cartCount})` : ''}`} onClick={() => navigate('cart')} />
           </div>
         </div>
 
         <div className="border-t border-gray-200 py-3 text-sm font-medium">
           <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
             <div className="flex gap-6">
-              <span className="cursor-pointer">≡ All category</span>
+              <span className="cursor-pointer" onClick={() => navigate('grid')}>≡ All category</span>
               {['Hot offers', 'Gift boxes', 'Projects', 'Menu item', 'Help'].map(item => (
                 <span key={item} className="cursor-pointer hover:text-blue-600">{item}</span>
               ))}
@@ -65,7 +65,7 @@ export default function ProductGrid() {
         
         {/* Breadcrumbs */}
         <div className="text-gray-400 text-sm mb-5">
-          Home &gt; Clothings &gt; Men's wear &gt; Summer clothing
+          <span className="cursor-pointer hover:text-blue-600" onClick={() => navigate('home')}>Home</span> &gt; Clothings &gt; Men's wear &gt; Summer clothing
         </div>
 
         <div className="flex gap-6">
@@ -95,7 +95,7 @@ export default function ProductGrid() {
                 </select>
                 <div className="flex border border-gray-300 rounded overflow-hidden">
                   <button className="px-2 py-1.5 bg-gray-100 border-r border-gray-300">田</button>
-                  <button className="px-2 py-1.5 bg-white text-gray-400">≡</button>
+                  <button className="px-2 py-1.5 bg-white text-gray-400" onClick={() => navigate('details')}>≡</button>
                 </div>
               </div>
             </div>
@@ -113,7 +113,7 @@ export default function ProductGrid() {
             {/* 3x3 Product Grid */}
             <div className="grid grid-cols-3 gap-4">
               {products.map((item) => (
-                <div key={item.id} className="bg-white border border-gray-200 rounded-lg p-4 flex flex-col hover:shadow-md transition">
+                <div key={item.id} className="bg-white border border-gray-200 rounded-lg p-4 flex flex-col hover:shadow-md transition cursor-pointer" onClick={() => onSelectProduct({ id: item.id, title: item.title, price: parseFloat(item.price), img: item.imgSrc })}>
                   <div className="w-full h-48 mb-4 flex items-center justify-center">
                     <img src={item.imgSrc} alt="Product" className="max-h-full max-w-full object-contain" />
                   </div>
@@ -129,7 +129,7 @@ export default function ProductGrid() {
                         <span className="text-orange-500 text-sm font-medium">{item.rating}</span>
                       </div>
                     </div>
-                    <button className="text-blue-600 border border-gray-200 p-2 rounded-lg hover:bg-gray-50 shadow-sm">♡</button>
+                    <button className="text-blue-600 border border-gray-200 p-2 rounded-lg hover:bg-gray-50 shadow-sm" onClick={(e) => { e.stopPropagation(); }}>♡</button>
                   </div>
 
                   <p className="text-gray-500 text-sm mt-2 leading-snug line-clamp-2">
@@ -173,7 +173,7 @@ export default function ProductGrid() {
       <footer className="bg-white pt-12 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-6 gap-8 mb-12">
           <div className="col-span-2">
-            <img src="/assets/Layout/Brand/logo-colored.png" alt="Logo" className="h-10 mb-6" />
+            <img src="/assets/Layout/Brand/logo-colored.png" alt="Logo" className="h-10 mb-6 cursor-pointer" onClick={() => navigate('home')} />
             <p className="text-gray-500 text-sm pr-10 leading-relaxed">Best information about the company gies here but too lorem ipsum is.</p>
             <div className="flex gap-2">
               {['FB', 'TW', 'LI', 'IG', 'YT'].map(s => (
@@ -201,9 +201,9 @@ export default function ProductGrid() {
 
 // --- Internal Reusable Components ---
 
-function NavItem({ src, label }) {
+function NavItem({ src, label, onClick }) {
   return (
-    <div className="flex flex-col items-center cursor-pointer hover:text-blue-600 transition">
+    <div className="flex flex-col items-center cursor-pointer hover:text-blue-600 transition" onClick={onClick}>
       <img src={src} className="w-5 h-5 mb-1 opacity-70" alt={label} />
       <span>{label}</span>
     </div>

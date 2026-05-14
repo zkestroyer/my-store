@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ProductListing() {
+export default function ProductListing({ navigate, onSelectProduct, addToCart, cartCount }) {
   // Sidebar Category Data
   const categories = ['Mobile accessory', 'Electronics', 'Smartphones', 'Modern tech'];
   const brands = ['Samsung', 'Apple', 'Huawei', 'Pocco', 'Lenovo'];
@@ -23,7 +23,7 @@ export default function ProductListing() {
       <header className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src="/assets/Layout/Brand/logo-colored.png" alt="Brand Logo" className="h-10 w-auto" />
+            <img src="/assets/Layout/Brand/logo-colored.png" alt="Brand Logo" className="h-10 w-auto cursor-pointer" onClick={() => navigate('home')} />
           </div>
           <div className="flex w-1/2 border-2 border-blue-600 rounded-md overflow-hidden">
             <input type="text" placeholder="Search" className="w-full px-3 py-2 outline-none" />
@@ -36,13 +36,13 @@ export default function ProductListing() {
             <NavItem src="https://img.icons8.com/material-outlined/24/787878/user.png" label="Profile" />
             <NavItem src="https://img.icons8.com/material-outlined/24/787878/speech-bubble.png" label="Message" />
             <NavItem src="https://img.icons8.com/material-outlined/24/787878/box.png" label="Orders" />
-            <NavItem src="https://img.icons8.com/material-outlined/24/787878/shopping-cart.png" label="My cart" />
+            <NavItem src="https://img.icons8.com/material-outlined/24/787878/shopping-cart.png" label={`My cart${cartCount ? ` (${cartCount})` : ''}`} onClick={() => navigate('cart')} />
           </div>
         </div>
         <div className="border-t border-gray-200 py-3 text-sm font-medium">
           <div className="max-w-7xl mx-auto px-4 flex justify-between">
             <div className="flex gap-6">
-              <span>All category</span>
+              <span className="cursor-pointer" onClick={() => navigate('grid')}>All category</span>
               {['Hot offers', 'Gift boxes', 'Projects', 'Menu item', 'Help'].map(item => <span key={item} className="cursor-pointer">{item}</span>)}
             </div>
             <div className="flex gap-4">
@@ -58,7 +58,7 @@ export default function ProductListing() {
       <main className="max-w-7xl mx-auto px-4 py-5">
         {/* Breadcrumbs */}
         <div className="text-gray-400 text-sm mb-5">
-          Home &gt; Clothings &gt; Men's wear &gt; Summer clothing
+          <span className="cursor-pointer hover:text-blue-600" onClick={() => navigate('home')}>Home</span> &gt; Clothings &gt; Men's wear &gt; Summer clothing
         </div>
 
         <div className="flex gap-6">
@@ -104,8 +104,8 @@ export default function ProductListing() {
                   <option>Featured</option>
                 </select>
                 <div className="flex border border-gray-300 rounded overflow-hidden">
-                  <button className="p-2 bg-gray-100 border-r border-gray-300">田</button>
-                  <button className="p-2 bg-white">≡</button>
+                  <button className="p-2 bg-white border-r border-gray-300" onClick={() => navigate('grid')}>田</button>
+                  <button className="p-2 bg-gray-100">≡</button>
                 </div>
               </div>
             </div>
@@ -114,12 +114,12 @@ export default function ProductListing() {
             <div className="space-y-3">
               {products.map(product => (
                 <div key={product.id} className="bg-white border border-gray-200 rounded-lg p-5 flex gap-6 hover:shadow-sm transition">
-                  <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center border border-gray-100 rounded">
+                  <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center border border-gray-100 rounded cursor-pointer" onClick={() => onSelectProduct(product)}>
                     <img src={product.img} alt="Product" className="max-h-full max-w-full object-contain" />
                   </div>
                   <div className="flex-grow">
                     <div className="flex justify-between items-start">
-                      <h3 className="font-medium text-[16px] text-[#1C1C1C] hover:text-blue-600 cursor-pointer">{product.title}</h3>
+                      <h3 className="font-medium text-[16px] text-[#1C1C1C] hover:text-blue-600 cursor-pointer" onClick={() => onSelectProduct(product)}>{product.title}</h3>
                       <button className="text-blue-600 border border-gray-200 rounded p-2 hover:bg-gray-50">♡</button>
                     </div>
                     <div className="flex items-center gap-2 mt-1">
@@ -134,7 +134,7 @@ export default function ProductListing() {
                       <span className="text-green-500 font-medium">{product.shipping}</span>
                     </div>
                     <p className="text-gray-500 text-sm mt-3 leading-relaxed line-clamp-2">{product.desc}</p>
-                    <button className="text-blue-600 font-bold text-sm mt-3">View details</button>
+                    <button className="text-blue-600 font-bold text-sm mt-3" onClick={() => onSelectProduct(product)}>View details</button>
                   </div>
                 </div>
               ))}
@@ -170,7 +170,7 @@ export default function ProductListing() {
       <footer className="bg-white pt-10">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-6 gap-8 pb-10">
           <div className="col-span-2">
-            <img src="/assets/Layout/Brand/logo-colored.png" alt="Brand Logo" className="h-10 mb-5" />
+            <img src="/assets/Layout/Brand/logo-colored.png" alt="Brand Logo" className="h-10 mb-5 cursor-pointer" onClick={() => navigate('home')} />
             <p className="text-gray-500 text-sm pr-10">Best information about the company gies here but too lorem ipsum is.</p>
             <div className="flex gap-2 mt-4">
               {['FB', 'TW', 'LI', 'IG', 'YT'].map(s => (
@@ -198,9 +198,9 @@ export default function ProductListing() {
 
 // --- Helper Components ---
 
-function NavItem({ src, label }) {
+function NavItem({ src, label, onClick }) {
   return (
-    <div className="flex flex-col items-center cursor-pointer">
+    <div className="flex flex-col items-center cursor-pointer" onClick={onClick}>
       <img src={src} className="w-5 h-5 mb-1" alt={label} />
       <span>{label}</span>
     </div>
